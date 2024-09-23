@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Donate Bangladesh</title>
+        <link
+            rel="shortcut icon"
+            href="./assets/favicon.ico"
+            type="image/x-icon" />
+
+        <!-- LINK Font-awesome Cdn -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+
+        <!-- LINK Google font - Lexend -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+            rel="stylesheet" />
+
+        <!-- LINK DaisyUi & Tailwind CSS Cdn -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+            rel="stylesheet"
+            type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- TODO Tailwind CSS Custom Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#111111',
+                            secondary: 'rgba(17, 17, 17, 0.7)',
+                            inputColor: 'rgba(17, 17, 17, 0.4)',
+                            btnColor: '#B4F461'
+                        },
+                        fontFamily: {
+                            Lexend: 'Lexend'
+                        }
+                    }
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <h1 class="text-9xl font-Lexend">hello world</h1>
+        <!-- TODO JavaScript file links -->
+        <script src="./js/utilitis.js"></script>
+        <script src="./js/script.js"></script>
+    </body>
+</html>
