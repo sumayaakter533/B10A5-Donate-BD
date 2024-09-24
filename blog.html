@@ -1,0 +1,276 @@
+<!-- ------------------------------------------------------------------------
+    ?                                ABOUT
+ * @author         :  Sumaya Akter
+ * @email          :  sumaya55230@gmail.com
+ * @repo           :  https://github.com/sumayaakter533/B10A5-Donate-BD.git
+ * @createdOn      :  23, September 2024
+ * @description    :  Assignment 5 - Donate BD
+
+------------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Donate Bangladesh</title>
+        <link
+            rel="shortcut icon"
+            href="./assets/favicon.ico"
+            type="image/x-icon" />
+
+        <!-- LINK Font-awesome Cdn -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+
+        <!-- LINK Google font - Lexend -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+            rel="stylesheet" />
+
+        <!-- LINK DaisyUi & Tailwind CSS Cdn -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+            rel="stylesheet"
+            type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- TODO Tailwind CSS Custom Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#111111',
+                            secondary: 'rgba(17, 17, 17, 0.7)',
+                            cardBorder: 'rgba(17, 17, 17, 0.1)',
+                            btnColor: '#B4F461'
+                        },
+                        fontFamily: {
+                            Lexend: 'Lexend'
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <!-- TODO CSS Styles -->
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
+    </head>
+    <body class="font-Lexend">
+        <!-- SECTION Header -->
+        <header class="bg-[#F9F7F3] w-full">
+            <nav class="navbar w-10/12 m-auto p-0 pt-6 md:pb-16 pb-6">
+                <div class="navbar-start">
+                    <a
+                        href="./index.html"
+                        class="btn bg-btnColor text-primary font-semibold text-xl">
+                        Home
+                    </a>
+                </div>
+                <div class="navbar-center flex gap-4">
+                    <img
+                        src="./assets/logo.png"
+                        alt="logo"
+                        class="sm:w-auto w-8 sm:mr-0 mr-5" />
+                    <h3
+                        class="text-primary font-semibold text-xl hidden lg:block">
+                        Donate Bangladesh
+                    </h3>
+                </div>
+                <div class="navbar-end">
+                    <p
+                        class="sm:text-xl text-lg text-secondary font-semibold flex sm:gap-3 gap-1">
+                        <img
+                            src="./assets/coin.png"
+                            alt="coin"
+                            class="sm:w-full w-6" />
+                        <span id="totalBudgetAmount">5500</span>
+                        <span>BDT</span>
+                    </p>
+                </div>
+            </nav>
+        </header>
+        <!-- !SECTION - END Header -->
+
+        <main class="w-10/12 m-auto py-12">
+            <h1 class="text-3xl font-bold flex gap-4">
+                Important FAQ
+                <img src="./assets/question.png" alt="" class="w-12 -mt-2" />
+            </h1>
+
+            <section class="space-y-6 mt-6">
+                <!--TODO question 1 -->
+                <div class="border border-cardBorder shadow-sm rounded-2xl p-8">
+                    <details>
+                        <summary class="text-base font-bold text-primary">
+                            What is the Document Object Model (DOM)?
+                        </summary>
+                        <p
+                            class="text-base font-normal text-secondary leading-6">
+                            The Document Object Model (DOM) is a programming
+                            interface for web documents. It represents the
+                            structure of a webpage as a tree of objects,
+                            allowing developers to access, manipulate, and
+                            update the content, structure, and styles of HTML
+                            and XML documents dynamically using JavaScript.
+                        </p>
+                    </details>
+                </div>
+
+                <!--TODO question 2 -->
+                <div class="border border-cardBorder shadow-sm rounded-2xl p-8">
+                    <details>
+                        <summary class="text-base font-bold text-primary">
+                            How do you select an element form the DOM?
+                        </summary>
+
+                        <p
+                            class="text-base font-normal text-secondary leading-6 pb-2">
+                            You can select an element from the DOM using methods
+                            like:
+                        </p>
+                        <ul
+                            class="text-base font-normal text-secondary leading-6 list-disc ml-8">
+                            <li>
+                                <code>document.getElementById('id')</code>
+                                - Selects an element by its ID.
+                            </li>
+
+                            <li>
+                                <code
+                                    >document.getElementsByClassName('class')</code
+                                >
+                                - Selects elements by their class name.
+                            </li>
+
+                            <li>
+                                <code
+                                    >document.getElementsByTagName('tag')</code
+                                >
+                                - Selects elements by their tag name.
+                            </li>
+
+                            <li>
+                                <code>document.querySelector('selector')</code>
+                                - Selects the first element that matches a CSS
+                                selector.
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!--TODO question 3 -->
+                <div class="border border-cardBorder shadow-sm rounded-2xl p-8">
+                    <details>
+                        <summary class="text-base font-bold text-primary">
+                            What is event delegation in the context of the DOM,
+                            and why is it useful?
+                        </summary>
+                        <p
+                            class="text-base font-normal text-secondary leading-6">
+                            <b>Event delegation</b> is a technique in the DOM
+                            where a single event listener is attached to a
+                            parent element instead of multiple listeners on
+                            individual child elements. This parent listener
+                            captures events from its child elements through the
+                            event bubbling phase.
+                        </p>
+
+                        <b class="block mt-4">Why It’s Useful:</b>
+                        <ul
+                            class="text-base font-normal text-secondary leading-6 list-disc ml-8">
+                            <li>
+                                <u>Performance</u>: Reduces the number of event
+                                listeners, improving performance, especially
+                                with many elements.
+                            </li>
+                            <li>
+                                <u>Dynamic Elements</u>: Automatically handles
+                                events for dynamically added child elements
+                                without needing to reattach listeners.
+                            </li>
+                            <li>
+                                <u>Simplified Management</u>: Makes it easier to
+                                manage events in complex UIs by consolidating
+                                event handling logic.
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!--TODO question 4 -->
+                <div class="border border-cardBorder shadow-sm rounded-2xl p-8">
+                    <details>
+                        <summary class="text-base font-bold text-primary">
+                            How do you manipulate an element's attributes and
+                            style using the DOM?
+                        </summary>
+                        <p
+                            class="text-base font-normal text-secondary leading-6">
+                            You can manipulate an element's attributes and
+                            styles using the DOM with the following methods:
+                        </p>
+
+                        <h4 class="font-bold py-2">Manipulating Attributes:</h4>
+                        <ul
+                            class="text-base font-normal text-secondary leading-6 list-disc ml-8">
+                            <li>
+                                <code
+                                    >element.setAttribute('attributeName',
+                                    'value')</code
+                                >
+                                - To set an Attribute.
+                            </li>
+                            <li>
+                                <code
+                                    >element.getAttribute('attributeName')</code
+                                >
+                                - To get an Attribute.
+                            </li>
+                            <li>
+                                <code
+                                    >element.removeAttribute('attributeName')</code
+                                >
+                                - To remove an Attribute.
+                            </li>
+                        </ul>
+
+                        <h4 class="font-bold py-2">Manipulating Attributes:</h4>
+                        <ul
+                            class="text-base font-normal text-secondary leading-6 list-disc ml-8">
+                            <li>
+                                <code
+                                    >element.style.propertyName = 'value'</code
+                                >
+                                - To set a CSS property.
+                            </li>
+                            <li>
+                                <code
+                                    >getComputedStyle(element).propertyName</code
+                                >
+                                - To get the computed value of a CSS property.
+                            </li>
+                            <li>
+                                <code
+                                    >element.style.removeProperty('propertyName')</code
+                                >
+                                - To remove a CSS property.
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
