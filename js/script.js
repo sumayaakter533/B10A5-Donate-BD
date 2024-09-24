@@ -16,6 +16,7 @@ function handleFloodDonationBD(
             //TODO input validation check
             if (isNaN(inputAmountNumber) || inputAmountNumber <= 0) {
                 alert('Please enter a valid number');
+                clearInput(inputDonation);
                 return;
             }
 
@@ -24,6 +25,7 @@ function handleFloodDonationBD(
 
             if (inputAmountNumber > donationBudget) {
                 alert('You cannot donate more than the total budget');
+                clearInput(inputDonation);
                 return;
             }
 

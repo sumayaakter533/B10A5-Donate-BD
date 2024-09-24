@@ -65,41 +65,52 @@
             html {
                 scroll-behavior: smooth;
             }
+            .sticky {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                backdrop-filter: blur(164px);
+                background-color: rgba(254, 240, 138, 0.2) !important;
+            }
         </style>
     </head>
     <body class="font-Lexend">
         <!-- SECTION Header -->
-        <header class="bg-yellow-50 w-full">
-            <nav class="navbar w-10/12 m-auto p-0 pt-6 md:pb-16 pb-6">
-                <div class="navbar-start">
-                    <a
-                        href="./index.html"
-                        class="btn bg-btnColor text-primary font-semibold text-xl">
-                        Home
-                    </a>
-                </div>
-                <div class="navbar-center flex gap-4">
-                    <img
-                        src="./assets/logo.png"
-                        alt="logo"
-                        class="sm:w-auto w-8 sm:mr-0 mr-5" />
-                    <h3
-                        class="text-primary font-semibold text-xl hidden lg:block">
-                        Donate Bangladesh
-                    </h3>
-                </div>
-                <div class="navbar-end">
-                    <p
-                        class="sm:text-xl text-lg text-secondary font-semibold flex sm:gap-3 gap-1">
+        <header id="sticky-header" class="w-full">
+            <section id="sticky-nav" class="bg-yellow-50">
+                <nav class="navbar w-10/12 m-auto p-0 pt-6 md:pb-16 pb-6 z-10">
+                    <div class="navbar-start">
+                        <a
+                            href="./blog.html"
+                            class="btn bg-btnColor text-primary font-semibold text-xl">
+                            Blog
+                        </a>
+                    </div>
+                    <div class="navbar-center flex gap-4">
                         <img
-                            src="./assets/coin.png"
-                            alt="coin"
-                            class="sm:w-full w-6" />
-                        <span id="totalBudgetAmount">5500</span>
-                        <span>BDT</span>
-                    </p>
-                </div>
-            </nav>
+                            src="./assets/logo.png"
+                            alt="logo"
+                            class="sm:w-auto w-8 sm:mr-0 mr-5" />
+                        <h3
+                            class="text-primary font-semibold text-xl hidden lg:block">
+                            Donate Bangladesh
+                        </h3>
+                    </div>
+                    <div class="navbar-end">
+                        <p
+                            class="sm:text-xl text-lg text-secondary font-semibold flex sm:gap-3 gap-1">
+                            <img
+                                src="./assets/coin.png"
+                                alt="coin"
+                                class="sm:w-full w-6" />
+                            <span id="totalBudgetAmount">5500</span>
+                            <span>BDT</span>
+                        </p>
+                    </div>
+                </nav>
+            </section>
         </header>
         <!-- !SECTION - END Header -->
 
@@ -272,5 +283,25 @@
                 </div>
             </section>
         </main>
+
+        <!-- TODO JavaScript file links -->
+        <script>
+            let navbar = document.getElementById('sticky-header');
+            let sticky = navbar.offsetTop;
+
+            function handleScroll() {
+                if (window.scrollY > sticky) {
+                    navbar.classList.add('sticky');
+                } else {
+                    navbar.classList.remove('sticky');
+                }
+            }
+
+            window.onscroll = function () {
+                handleScroll();
+            };
+        </script>
+        <script src="./js/utilitis.js"></script>
+        <script src="./js/script.js"></script>
     </body>
 </html>
