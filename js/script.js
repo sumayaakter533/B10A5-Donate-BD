@@ -2,7 +2,8 @@ function handleFloodDonationBD(
     donateBtn,
     inputDonation,
     initialDonation,
-    totalBudget
+    totalBudget,
+    location
 ) {
     document
         .getElementById(donateBtn)
@@ -12,9 +13,10 @@ function handleFloodDonationBD(
             //TODO get the input amount
             let inputAmountNumber = Number(getInputValueById(inputDonation));
 
-            if (isNaN(inputAmountNumber) || inputAmountNumber < 0) {
+            //TODO input validation check
+            if (isNaN(inputAmountNumber) || inputAmountNumber <= 0) {
                 alert('Please enter a valid number');
-                return; // exit function if input is not a number or is less than 0
+                return;
             }
 
             //TODO convert into number the totalBudget
@@ -37,55 +39,17 @@ function handleFloodDonationBD(
             document.getElementById(totalBudget).innerText =
                 currentBudgetAmount;
 
+            //TODO add the transaction history
+            let donationArea = document.getElementById(location).innerText;
+            showTransactionHistory(donateBtn, inputAmountNumber, donationArea);
+
+            //TODO Success modal dialog
+            if (inputAmountNumber) {
+                my_modal_1.showModal();
+            }
+
             //TODO clear the input field
             clearInput(inputDonation);
-
-            //TODO add the transaction history
-            let transactionHistory = getInnerHtmlById(
-                'noakhaliTransactionHistory'
-            );
-
-            let transactionHistoryDiv = document.createElement('div');
-            transactionHistoryDiv.classList.add(
-                'border',
-                'border-cardBorder',
-                'shadow-sm',
-                'rounded-2xl',
-                'p-8'
-            );
-
-            let transactionHistoryTitle = document.createElement('h3');
-            transactionHistoryTitle.classList.add(
-                'text-xl',
-                'font-bold',
-                'text-primary',
-                'leading-snug',
-                '-mt-7'
-            );
-
-            transactionHistoryTitle.innerText = `
-                ${inputAmountNumber} is donated for ${transactionHistory}
-            `;
-
-            transactionHistoryDiv.appendChild(transactionHistoryTitle);
-
-            let transactionHistoryDate = document.createElement('p');
-            transactionHistoryDate.classList.add(
-                'text-base',
-                'font-normal',
-                'text-secondary',
-                'leading-6',
-                'pt-4',
-                'lg:pt-0'
-            );
-
-            let now = new Date();
-            transactionHistoryDate.innerText = `Date: ${now}`;
-            transactionHistoryDiv.appendChild(transactionHistoryDate);
-
-            document
-                .getElementById('history-section')
-                .appendChild(transactionHistoryDiv);
         });
 }
 
@@ -93,21 +57,24 @@ handleFloodDonationBD(
     'donateBtn',
     'inputAmount',
     'initialAmount',
-    'totalBudgetAmount'
+    'totalBudgetAmount',
+    'noakhaliTransactionHistory'
 );
 
 handleFloodDonationBD(
     'donateBtn2',
     'inputAmount2',
     'initialAmount2',
-    'totalBudgetAmount'
+    'totalBudgetAmount',
+    'FeniTransactionHistory'
 );
 
 handleFloodDonationBD(
     'donateBtn3',
     'inputAmount3',
     'initialAmount3',
-    'totalBudgetAmount'
+    'totalBudgetAmount',
+    'QuotaTransactionHistory'
 );
 
 // TODO show donation section
@@ -123,3 +90,11 @@ document
     .addEventListener('click', function () {
         showSection('history-section', 'historySectionBtn');
     });
+
+//TODO Sticky header
+let navbar = document.getElementById('sticky-header');
+let sticky = navbar.offsetTop;
+
+window.onscroll = function () {
+    handleScroll();
+};

@@ -72,48 +72,60 @@
             input::placeholder {
                 color: rgba(17, 17, 17, 0.4);
             }
+            .sticky {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                backdrop-filter: blur(45px);
+                background-color: rgba(255, 255, 255, 0.4) !important;
+            }
+            .nav-blur {
+                backdrop-filter: blur(64px);
+                background-color: rgba(254, 240, 138, 0.2) !important;
+            }
         </style>
     </head>
     <body class="font-Lexend">
         <!-- SECTION Header -->
-        <header class="bg-[#F9F7F3] w-full">
-            <nav class="navbar w-10/12 m-auto p-0 pt-6 md:pb-16 pb-6">
-                <div class="navbar-start">
-                    <a
-                        href="./blog.html"
-                        class="btn bg-btnColor text-primary font-semibold text-xl">
-                        Blog
-                    </a>
-                </div>
-                <div class="navbar-center flex gap-4">
-                    <img
-                        src="./assets/logo.png"
-                        alt="logo"
-                        class="sm:w-auto w-8 sm:mr-0 mr-5" />
-                    <h3
-                        class="text-primary font-semibold text-xl hidden lg:block">
-                        Donate Bangladesh
-                    </h3>
-                </div>
-                <div class="navbar-end">
-                    <p
-                        class="sm:text-xl text-lg text-secondary font-semibold flex sm:gap-3 gap-1">
+        <header id="sticky-header" class="w-full">
+            <section id="sticky-nav" class="bg-yellow-50">
+                <nav class="navbar w-10/12 m-auto p-0 pt-6 md:pb-16 pb-6 z-10">
+                    <div class="navbar-start">
+                        <a
+                            href="./blog.html"
+                            class="btn bg-btnColor text-primary font-semibold text-xl">
+                            Blog
+                        </a>
+                    </div>
+                    <div class="navbar-center flex gap-4">
                         <img
-                            src="./assets/coin.png"
-                            alt="coin"
-                            class="sm:w-full w-6" />
-                        <span id="totalBudgetAmount">5500</span>
-                        <span>BDT</span>
-                    </p>
-                </div>
-            </nav>
-        </header>
-        <!-- !SECTION - END Header -->
+                            src="./assets/logo.png"
+                            alt="logo"
+                            class="sm:w-auto w-8 sm:mr-0 mr-5" />
+                        <h3
+                            class="text-primary font-semibold text-xl hidden lg:block">
+                            Donate Bangladesh
+                        </h3>
+                    </div>
+                    <div class="navbar-end">
+                        <p
+                            class="sm:text-xl text-lg text-secondary font-semibold flex sm:gap-3 gap-1">
+                            <img
+                                src="./assets/coin.png"
+                                alt="coin"
+                                class="sm:w-full w-6" />
+                            <span id="totalBudgetAmount">5500</span>
+                            <span>BDT</span>
+                        </p>
+                    </div>
+                </nav>
+            </section>
 
-        <main>
             <!-- SECTION Navigation Buttons -->
             <section
-                class="text-center flex justify-center gap-4 lg:mt-20 lg:mb-8 my-8 w-10/12 m-auto">
+                class="text-center flex justify-center gap-4 lg:pt-20 lg:pb-8 py-8">
                 <button
                     id="donationSectionBtn"
                     class="btn text-primary font-semibold text-xl active">
@@ -126,7 +138,10 @@
                 </button>
             </section>
             <!-- !SECTION - END Navigation-Buttons -->
+        </header>
+        <!-- !SECTION - END Header -->
 
+        <main>
             <!-- SECTION donation card container -->
             <section
                 id="donation-section"
@@ -175,8 +190,7 @@
                         <!-- ANCHOR card-1 button -->
                         <button
                             id="donateBtn"
-                            class="btn bg-btnColor text-primary font-semibold text-xl w-full"
-                            onclick="my_modal_1.showModal()">
+                            class="btn bg-btnColor text-primary font-semibold text-xl w-full">
                             Donate Now
                         </button>
                     </div>
@@ -204,7 +218,9 @@
                             <span>BDT</span>
                         </button>
 
-                        <h3 class="text-primary text-xl font-bold leading-7">
+                        <h3
+                            id="FeniTransactionHistory"
+                            class="text-primary text-xl font-bold leading-7">
                             Donate for Flood Relief in Feni,Bangladesh
                         </h3>
                         <p
@@ -230,8 +246,7 @@
                         <!--   ANCHOR card-2 donate button -->
                         <button
                             id="donateBtn2"
-                            class="btn bg-btnColor text-primary font-semibold text-xl w-full"
-                            onclick="my_modal_1.showModal()">
+                            class="btn bg-btnColor text-primary font-semibold text-xl w-full">
                             Donate Now
                         </button>
                     </div>
@@ -258,7 +273,9 @@
                             <span>BDT</span>
                         </button>
 
-                        <h3 class="text-primary text-xl font-bold leading-7">
+                        <h3
+                            id="QuotaTransactionHistory"
+                            class="text-primary text-xl font-bold leading-7">
                             Aid for Injured in the Quota Movement
                         </h3>
                         <p
@@ -283,8 +300,7 @@
                             class="input input-bordered text-primary text-base w-full" />
                         <button
                             id="donateBtn3"
-                            class="btn bg-btnColor text-primary font-semibold text-xl w-full"
-                            onclick="my_modal_1.showModal()">
+                            class="btn bg-btnColor text-primary font-semibold text-xl w-full">
                             Donate Now
                         </button>
                     </div>
@@ -301,6 +317,7 @@
             id="history-section"
             class="hidden history-card-container md:w-10/12 m-auto p-8 space-y-6">
             <h1
+                id="noTransaction"
                 class="text-3xl leading-snug text-secondary text-center w-10/12 m-auto">
                 Transaction History Not Found
             </h1>
